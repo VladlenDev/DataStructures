@@ -6,36 +6,55 @@ using namespace std;
 
 int main()
 {
-	List<int> list;
-	list.print();
-	list.append(2);
-	list.print();
-	list.append(3);
-	list.append(4);
-	list.append(5);
-	list.print();
+	List<int> nodes;
 
-	List<string> sList;
-	sList.append("Master Yoda:");
-	sList.append("Do.");
-	sList.append("Or do not.");
-	sList.append("There is no try.");
-	sList.print();
+	nodes.push_back(1);
+	nodes.push_back(2);
+	nodes.push_back(3);
+	nodes.push_back(4);
+	nodes.push_back(5);
 
-	/*
-	list.prepend(2);
-	list.print();
-	list.prepend(3);
-	list.prepend(4);
-	list.prepend(5);
-	list.print();
+	for (List<int>::Iterator it = nodes.begin(); it != nodes.end(); it++) {
+		cout << *it << endl;
+	}
+	cout << "----------------" << endl;
 
-	sList.prepend("There is no try.");
-	sList.prepend("Or do not.");
-	sList.prepend("Do.");
-	sList.prepend("Master Yoda:");
-	sList.print();
-*/
+	List<int>::Iterator itErase = nodes.begin();
+	nodes.erase(itErase);
+	itErase++;
+	nodes.erase(itErase);
+	itErase++;
+	nodes.erase(itErase);
+	nodes.erase(itErase);
+	itErase++;
+
+	for (List<int>::Iterator it = nodes.begin(); it != nodes.end(); it++) {
+		cout << *it << endl;
+	}
+	cout << "----------------" << endl;
+
+	List<int>::Iterator itInsert = nodes.begin();
+	nodes.insert(itInsert, 11);
+	nodes.insert(++itInsert, 22);
+	nodes.insert(itInsert, 33);
+
+	for (List<int>::Iterator it = nodes.begin(); it != nodes.end(); it++) {
+		cout << *it << endl;
+	}
+	cout << "----------------" << endl;
+
+
+	List<string> strings;
+	strings.push_front("There is no try.");
+	strings.push_front("Or do not.");
+	strings.push_front("Do.");
+	strings.push_front("Master Yoda:");
+
+	for (List<string>::Iterator it = strings.begin(); it != strings.end(); it++) {
+		cout << it->data << endl;
+	}
+	cout << "----------------" << endl;
+
 	system("pause>0");
 	return 0;
 }
